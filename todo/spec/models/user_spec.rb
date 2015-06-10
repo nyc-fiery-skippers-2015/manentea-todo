@@ -1,5 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User do
+  let(:good_user) {User.new(name: "Antonio", email: 'manentea', password: '12345')}
+  let(:bad_user_email) {User.new(name: "Antonio", password: '12345')}
+  let(:bad_user_name) {User.new(email: 'manentea', password: '12345')}
+
+  it 'this is a canary test' do
+    expect(true).to be true
+  end
+
+  it 'has a name' do
+    expect(good_user.valid?).to be true
+  end
+
+  it 'has an email' do
+    expect(bad_user_name.valid?).to be false
+  end
+
+  it 'has an email' do
+    expect(bad_user_email.valid?).to be false
+  end
 end
