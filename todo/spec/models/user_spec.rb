@@ -10,14 +10,14 @@ describe User do
   end
 
   it 'has a name' do
-    expect(good_user.valid?).to be true
+    expect(good_user).to be_valid
   end
 
   it 'has an email' do
-    expect(bad_user_name.valid?).to be false
+    expect(bad_user_name).to be_invalid
   end
 
   it 'has an email' do
-    expect(bad_user_email.valid?).to be false
+    expect(bad_user_email).to be_invalid
   end
 end
