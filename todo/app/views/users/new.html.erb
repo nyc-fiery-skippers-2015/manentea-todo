@@ -1,10 +1,19 @@
 <h2>Signup</h2>
 
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: 'Name' %>
-  <%= f.label :email %>
-  <%= f.text_field :email, placeholder: "Email" %>
-  <%= f.label :password %>
-  <%= f.password_field :password, placeholder: 'Password' %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'Name' %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "Email" %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: 'Password' %>
+  </div>
+  <div>
+    <%= f.submit 'Submit' %>
+  </div>
 <% end %>
