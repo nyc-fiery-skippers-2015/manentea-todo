@@ -1,6 +1,7 @@
 <div>
   <% @user.tasks.each do |task| %>
     <div><%= task.content %></div>
+    <div><%= link_to 'Delete Task', [@user, task], method: 'delete'  %></div>
   <% end %>
 </div>
 <div>
