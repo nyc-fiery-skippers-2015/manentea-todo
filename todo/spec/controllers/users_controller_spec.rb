@@ -40,7 +40,6 @@ describe UsersController do
       get :new
       expect(assigns(:user)).to be_a_new User
     end
-
   end
 
   context '#create' do
@@ -48,6 +47,19 @@ describe UsersController do
       expect {
         post :create, user: {name: "Antonio", email: 'manentea', password: '12345'}
       }.to change { User.count }.by(1)
+      expect(response).to be_redirect
+    end
+
+    it 'doesnt create a user with invalid attributes' do
+      expect {
+        post :create, user: {email: 'manentea', password: '12345'}
+      }.not_to change { User.count }
+    end
+
+    it 'doesnt create a user with invalid attributes' do
+      expect {
+        post :create, user: {name: 'Antonio', password: '12345'}
+      }.not_to change { User.count }
     end
   end
 end

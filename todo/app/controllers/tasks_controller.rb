@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to user_path(@user)
     else
-      redirect_to new_user_task_path(@user)
+      render :new
     end
   end
 
