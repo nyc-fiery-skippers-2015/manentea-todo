@@ -10,14 +10,18 @@ describe User do
   end
 
   it 'has a name' do
+    expect(good_user.name).to eq('Antonio')
+    expect(good_user.email).to eq('manentea')
     expect(good_user).to be_valid
   end
 
   it 'has an email' do
+    expect(good_user.email).to eq('manentea')
     expect(bad_user_name).to be_invalid
   end
 
   it 'has an email' do
+    expect(good_user.name).to eq('Antonio')
     expect(bad_user_email).to be_invalid
   end
 end

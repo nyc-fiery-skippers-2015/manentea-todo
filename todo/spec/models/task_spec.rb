@@ -10,14 +10,18 @@ describe Task do
   end
 
   it 'should have content' do
+    expect(bad_content_task.user_id).to eq(1)
     expect(bad_content_task).to be_invalid
   end
 
   it 'should have a user_id' do
+    expect(bad_user_task.content).to eq('hello')
     expect(bad_user_task).to be_invalid
   end
 
   it 'should have both a user_id and content' do
+    expect(bad_user_task.content).to eq('hello')
+    expect(bad_content_task.user_id).to eq(1)
     expect(good_task).to be_valid
   end
 end
