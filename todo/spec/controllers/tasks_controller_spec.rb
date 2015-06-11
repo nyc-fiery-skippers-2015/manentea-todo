@@ -33,4 +33,14 @@ describe TasksController do
     end
   end
 
+  context '#destroy' do
+    let(:user) {User.create(name: "Antonio", email: 'manentea', password: '12345')}
+    let!(:task) {Task.create(content: 'hello', user_id: 1)}
+    it 'should delete the task' do
+      expect {
+        delete :destroy, {id: task.id, user_id: user.id}
+      }.to change { Task.count }.by(-1)
+    end
+  end
+
 end
